@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Design &mdash; NeXDaTaS 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="NeXDaTaS 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Server clients" href="configserver.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          NeXDaTaS</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-data-writer">Nexus Data Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-component-designer">NXS Component Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-configuration-server">NXS Configuration Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-tools">Nexus Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#install-debian-packages">Install Debian packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configserver.html">Server clients</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-diagrams">Sequence diagrams</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Design</a><ul>
+<li><a class="reference internal" href="#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a><ul>
+<li><a class="reference internal" href="#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
+<li><a class="reference internal" href="#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
+<li><a class="reference internal" href="#client-datasource"><em>CLIENT</em> datasource</a><ul>
+<li><a class="reference internal" href="#record"><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tango-datasource"><em>TANGO</em> datasource</a><ul>
+<li><a class="reference internal" href="#device"><tt class="docutils literal"><span class="pre">&lt;device&gt;</span></tt></a></li>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#db-datasource"><em>DB</em> datasource</a><ul>
+<li><a class="reference internal" href="#database"><tt class="docutils literal"><span class="pre">&lt;database&gt;</span></tt></a></li>
+<li><a class="reference internal" href="#query"><tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyeval-datasource"><em>PYEVAL</em> datasource</a><ul>
+<li><a class="reference internal" href="#datasource"><tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt></a></li>
+<li><a class="reference internal" href="#result"><tt class="docutils literal"><span class="pre">&lt;result&gt;</span></tt></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sequence-diagrams">Sequence diagrams</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="configserver.html" title="Previous Chapter: Server clients"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Server clients</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nxdl-extensions-for-data-sources">
+<h2>NXDL extensions for data sources<a class="headerlink" href="#nxdl-extensions-for-data-sources" title="Permalink to this headline">¶</a></h2>
+<p>In order to describe various data sources <a class="reference external" href="http://download.nexusformat.org/sphinx/nxdl.html">the NXDL
+standard</a> has been
+extended by XML tags listed below. Thus, <tt class="docutils literal"><span class="pre">&lt;strategy</span> <span class="pre">/&gt;</span></tt> and
+<tt class="docutils literal"><span class="pre">&lt;datasource</span> <span class="pre">/&gt;</span></tt> tags can be situated inside</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">&lt;field</span> <span class="pre">/&gt;</span></tt> &#8211; for its value</li>
+<li><tt class="docutils literal"><span class="pre">&lt;attribute</span> <span class="pre">/&gt;</span></tt> &#8211; for its value</li>
+<li><tt class="docutils literal"><span class="pre">&lt;dim</span> <span class="pre">/&gt;</span></tt> &#8211; for  its value (from nxswriter v1.7.0)</li>
+<li><tt class="docutils literal"><span class="pre">&lt;link</span> <span class="pre">/&gt;</span></tt> &#8211; for its target (from nxswriter v1.9.0)</li>
+</ul>
+<p>The other ones are nested inside <tt class="docutils literal"><span class="pre">&lt;datasource/&gt;</span></tt> tag.</p>
+<div class="section" id="the-strategy-tag">
+<h3>The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag<a class="headerlink" href="#the-strategy-tag" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>strategy</strong> tag defines when and in which way the data is stored.
+An example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;field name=&quot;energy&quot; type=&quot;NX_FLOAT&quot; units=&quot;GeV&quot; &gt;
+  &lt;strategy mode=&quot;STEP&quot; trigger=&quot;trigger1&quot; /&gt;
+  &lt;datasource type=&quot;CLIENT&quot;&gt;
+    &lt;record name=&quot;counter_1&quot;/&gt;
+  &lt;/datasource&gt;
+&lt;/field&gt;
+</pre></div>
+</div>
+<p>The tag can have the following attributes:</p>
+<ul class="simple">
+<li><strong>mode</strong> specifies when the data is fetched, i.e.<ul>
+<li><em>INIT</em> during opening a new entry</li>
+<li><em>STEP</em> when the <em>record()</em> command is performed</li>
+<li><em>FINAL</em> at the time of closing the entry</li>
+<li><em>POSTRUN</em> during post-processing stage</li>
+<li><em>CONFIG</em> before opening a new entry (used only for dimensions)</li>
+</ul>
+</li>
+<li><strong>trigger</strong> stands for the name of the related trigger in asynchronous <em>STEP</em> mode (optional)</li>
+<li><strong>grows</strong> selects which a field dimension grows of in the STEP mode. The default growing dimension is the first one, i.e. grows=1 (optional)</li>
+<li><strong>compression</strong> specifies if data is compressed (optional)<ul>
+<li><em>true</em> data going to be compressed</li>
+<li><em>false</em> data stored without compression (default)</li>
+</ul>
+</li>
+<li><strong>rate</strong> compression rate (optional)<ul>
+<li>from <em>0</em> to <em>9</em></li>
+</ul>
+</li>
+<li><strong>shuffle</strong> compression shuffle (optional)<ul>
+<li><em>true</em> shuffle enabled (default)</li>
+<li><em>false</em> shuffle disabled</li>
+</ul>
+</li>
+<li><strong>canfail</strong> specifies if during reading data exception should be thrown (optional)<ul>
+<li><em>false</em> on error exception is raised (default)</li>
+<li><em>true</em> on error</li>
+</ul>
+</li>
+</ul>
+<p>warning info is printed and the record is filled by a maximum value for
+the record type</p>
+<p>The <strong>content</strong> of the strategy tags is an label describing data merged
+into the H5 file by a post-processing program.</p>
+<p>An example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;field name=&quot;energy&quot; type=&quot;NX_FLOAT&quot; units=&quot;GeV&quot; &gt;
+  &lt;strategy mode=&quot;POSTRUN&quot; &gt;
+    http://haso.desy.de:/data/energy.dat
+  &lt;/strategy&gt;
+&lt;/field&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-datasource-tag">
+<h3>The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag<a class="headerlink" href="#the-datasource-tag" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>datasource</strong> tag specifies a type of the used data sources. They
+can be one of built types, i.e. <em>CLIENT</em>, <em>TANGO</em>, <em>DB</em>, <em>PYEVAL</em> or
+external ones &#8211; defined in external python package and registered via
+JSON data.</p>
+<p>The <tt class="docutils literal"><span class="pre">&lt;datasouce&gt;</span></tt> tag acquires the following attributes:</p>
+<ul class="simple">
+<li><strong>type</strong> related to a type of data source with possible values:<ul>
+<li><em>CLIENT</em> for communication with client via JSON strings</li>
+<li><em>TANGO</em> for taking data from Tango servers</li>
+<li><em>DB</em> for fetching data from databases</li>
+<li><em>PYEVAL</em> for evaluating data from other data sources by python script</li>
+<li><em>other type name</em> of data source which has been registered via JSON data.</li>
+</ul>
+</li>
+<li><strong>name</strong> datasource name (optional)</li>
+</ul>
+</div>
+<div class="section" id="client-datasource">
+<h3><em>CLIENT</em> datasource<a class="headerlink" href="#client-datasource" title="Permalink to this headline">¶</a></h3>
+<p>The CLIENT datasource allows to read data from client JSON strings. It
+should contain a <tt class="docutils literal"><span class="pre">&lt;record</span> <span class="pre">/&gt;</span></tt> tag. An example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;CLIENT&quot; name=&quot;exp_c01&quot;&gt;
+  &lt;record name=&quot;counter_1&quot;/&gt;
+&lt;/datasource&gt;
+</pre></div>
+</div>
+<div class="section" id="record">
+<h4><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>record</strong> tag defines the fetched data by its name. It has an
+attrbute</p>
+<ul class="simple">
+<li><strong>name</strong> which for the <em>CLIENT</em> data source type denotes a name of the data in the JSON string.</li>
+</ul>
+<p>An example of usage:</p>
+<div class="code xml highlight-python"><div class="highlight"><pre>&lt;record name=&quot;Position&quot;/&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tango-datasource">
+<h3><em>TANGO</em> datasource<a class="headerlink" href="#tango-datasource" title="Permalink to this headline">¶</a></h3>
+<p>The TANGO datasource allows to read data from other TANGO devices. It
+should contain <tt class="docutils literal"><span class="pre">&lt;device/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;record/&gt;</span></tt> tags. An example of
+usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;TANGO&quot;&gt;
+  &lt;device hostname=&quot;haso.desy.de&quot; member=&quot;attribute&quot; name=&quot;p09/motor/exp.01&quot; port=&quot;10000&quot; encoding=&quot;LIMA_VIDEO_IMAGE&quot;/&gt;
+  &lt;record name=&quot;Position&quot;/&gt;
+&lt;/datasource&gt;
+</pre></div>
+</div>
+<div class="section" id="device">
+<h4><tt class="docutils literal"><span class="pre">&lt;device&gt;</span></tt><a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>device</strong> tag describes the Tango device which is used to get the
+data. It has the following attributes:</p>
+<ul class="simple">
+<li><strong>name</strong> corresponding to a name of the Tango device</li>
+<li><strong>member</strong> defining a type of the class member, i.e.<ul>
+<li><em>attribute</em> an attribute to read</li>
+<li><em>command</em> a result of a command to take</li>
+<li><em>property</em> a property to read</li>
+</ul>
+</li>
+<li><strong>hostname</strong> a name of the host with the Tango device server (optional)</li>
+<li><strong>port</strong> a port number related to the Tango device server (optional)</li>
+<li><strong>encoding</strong> a label defining a required decoder for <tt class="docutils literal"><span class="pre">DevEncoded</span></tt> data (optional)</li>
+<li><strong>group</strong> tango group name (optional)</li>
+</ul>
+<p>If <strong>group</strong> attribute is defined data of the same group is read
+simultaneously and only ones during one experimental step.</p>
+</div>
+<div class="section" id="id1">
+<h4><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>record</strong> tag defines the fetched data by its name. It has an
+attrbute</p>
+<ul class="simple">
+<li><strong>name</strong> which for the <em>TANGO</em> data source type a name of the tango class member.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="db-datasource">
+<h3><em>DB</em> datasource<a class="headerlink" href="#db-datasource" title="Permalink to this headline">¶</a></h3>
+<p>The DB datasource allows to read data from accessible databases. It
+should contain <tt class="docutils literal"><span class="pre">&lt;database</span> <span class="pre">/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt> tags. An example of
+usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;DB&quot;&gt;
+  &lt;database dbname=&quot;tango&quot; dbtype=&quot;MYSQL&quot; hostname=&quot;haso.desy.de&quot;/&gt;
+  &lt;query format=&quot;SPECTRUM&quot;&gt;
+    SELECT pid FROM device limit 10
+  &lt;/query&gt;
+&lt;/datasource&gt;
+</pre></div>
+</div>
+<div class="section" id="database">
+<h4><tt class="docutils literal"><span class="pre">&lt;database&gt;</span></tt><a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>database</strong> tag specifies parameters to connect to the required
+database. It acquires the attirbutes</p>
+<ul class="simple">
+<li><strong>dbtype</strong> describing a type of the database, i.e.<ul>
+<li><em>ORACLE</em> an ORACLE database</li>
+<li><em>MYSQL</em> a MySQL database</li>
+<li><em>PGSQL</em> a PostgreSQL database</li>
+</ul>
+</li>
+<li><strong>dbname</strong> denoting a name of the database (optional)</li>
+<li><strong>hostname</strong> being a name of the host with the database (optional)</li>
+<li><strong>port</strong> corresponding to a port number related to the database (optional)</li>
+<li><strong>user</strong> denoting a user name (optional)</li>
+<li><strong>passwd</strong> being a user password (optional)</li>
+<li><strong>mycnf</strong> defining a location of the my.cnf file with MySQL database access configuration (optional)</li>
+<li><strong>node</strong> corresponding to a node parameter for the ORACLE database(optional)</li>
+</ul>
+<p>The <strong>content</strong> of the database tag defines Oracle DSN string (optional)</p>
+</div>
+<div class="section" id="query">
+<h4><tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt><a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>query</strong> tag defines the database query which fetches the data. It
+has one attribute</p>
+<ul class="simple">
+<li><strong>format</strong> which specifies a dimension of the fetch data, i.e.<ul>
+<li><em>SCALAR</em> corresponds to 0-dimensional data, e.g. a separate numerical value or string</li>
+<li><em>SPECTRUM</em> is related to 1-dimensional data, e.g. a list of numerical values or strings</li>
+<li><em>IMAGE</em> describes 2-dimensional data, i.e. a table of specific type values, e.g. a table of strings</li>
+</ul>
+</li>
+</ul>
+<p>The <strong>content</strong> of the query tags is the SQL query</p>
+<p>Another example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;DB&quot;&gt;
+  &lt;database dbname=&quot;mydb&quot; dbtype=&quot;PGSQL&quot;/&gt;
+  &lt;query format=&quot;IMAGE&quot;&gt;
+    SELECT * FROM weather limit 3
+  &lt;/query&gt;
+&lt;/datasource&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pyeval-datasource">
+<h3><em>PYEVAL</em> datasource<a class="headerlink" href="#pyeval-datasource" title="Permalink to this headline">¶</a></h3>
+<p>The PYEVAL datasource allows to read data from other datasources and
+evaluate it by a user python script. An example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;PYEVAL&quot;&gt;
+
+  &lt;datasource type=&quot;TANGO&quot; name=&quot;position&quot;&gt;
+    &lt;device hostname=&quot;haso.desy.de&quot; member=&quot;attribute&quot; name=&quot;p09/motor/exp.01&quot; port=&quot;10000&quot;/&gt;
+    &lt;record name=&quot;Position&quot;/&gt;
+  &lt;/datasource&gt;
+
+  &lt;datasource type=&quot;CLIENT&quot; name=&quot;shift&quot;&gt;
+    &lt;record name=&quot;exp_c01&quot;/&gt;
+  &lt;/datasource&gt;
+
+  &lt;result name=&quot;finalposition&quot;&gt;
+    ds.finalposition = ds.position + ds.shift
+  &lt;/result&gt;
+
+&lt;/datasource&gt;
+</pre></div>
+</div>
+<div class="section" id="datasource">
+<h4><tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt><a class="headerlink" href="#datasource" title="Permalink to this headline">¶</a></h4>
+<p>The PYEVAL datasource can contain other datasources. They have to have
+defined name attributes. Those names with additional prefix &#8216;ds.&#8217;
+correspond to input variable names from the python script, i.e.
+ds.<strong>name</strong>.</p>
+</div>
+<div class="section" id="result">
+<h4><tt class="docutils literal"><span class="pre">&lt;result&gt;</span></tt><a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
+<p>The <strong>result</strong> contains python script which evaluates input data. It has
+the following attribute:
+* <strong>name</strong> corresponding to a result name. It
+is related to python script variable by <em>ds.**name**</em>. The default
+value <strong>name</strong>=&#8221;result&#8221;. (optional)</p>
+</div>
+</div>
+</div>
+<div class="section" id="sequence-diagrams">
+<h2>Sequence diagrams<a class="headerlink" href="#sequence-diagrams" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/basic_server_client_communication.png" src="_images/basic_server_client_communication.png" />
+<img alt="_images/configuration.png" src="_images/configuration.png" />
+<img alt="_images/recording_data.png" src="_images/recording_data.png" />
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, DESY, Jan Kotanski, Eugen Wintersberger, Halil Pasic, Maria-Teresa Núñez-Pardo-de-Vera.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Software &mdash; NeXDaTaS 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="NeXDaTaS 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Client code of NeXus Data Writer" href="configserver.html" />
+    <link rel="prev" title="Introduction" href="project_goals.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          NeXDaTaS</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nexus-data-writer">Nexus Data Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nxs-component-designer">NXS Component Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nxs-configuration-server">NXS Configuration Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nexus-tools">Nexus Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-debian-packages">Install Debian packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configserver.html">Client code of NeXus Data Writer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configserver.html#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">NXDL extensions for data sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#client-datasource"><em>CLIENT</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#tango-datasource"><em>TANGO</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#db-datasource"><em>DB</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#pyeval-datasource"><em>PYEVAL</em> datasource</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Software</a><ul>
+<li><a class="reference internal" href="#nexus-data-writer">Nexus Data Writer</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#installation-from-sources">Installation from sources</a></li>
+<li><a class="reference internal" href="#technical-details">Technical details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nxs-component-designer">NXS Component Designer</a><ul>
+<li><a class="reference internal" href="#id1">Introduction</a></li>
+<li><a class="reference internal" href="#id2">Installation from sources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nxs-configuration-server">NXS Configuration Server</a><ul>
+<li><a class="reference internal" href="#id3">Introduction</a></li>
+<li><a class="reference internal" href="#id4">Installation from sources</a></li>
+<li><a class="reference internal" href="#id5">Technical details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nexus-tools">Nexus Tools</a><ul>
+<li><a class="reference internal" href="#id6">Introduction</a></li>
+<li><a class="reference internal" href="#nxsdata">nxsdata</a></li>
+<li><a class="reference internal" href="#nxsconfig">nxsconfig</a></li>
+<li><a class="reference internal" href="#nxscreate">nxscreate</a></li>
+<li><a class="reference internal" href="#id7">Installation from sources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-debian-packages">Install Debian packages</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="project_goals.html" title="Previous Chapter: Introduction"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Introduction</span>
+    </a>
+  </li>
+  <li>
+    <a href="configserver.html" title="Next Chapter: Client code of NeXus Data Writer"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Client code of N... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nexus-data-writer">
+<h2>Nexus Data Writer<a class="headerlink" href="#nexus-data-writer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>NexDaTaS is a Tango server which allows to store NeXuS Data in H5 files.</p>
+<p>The server provides storing data from other Tango devices, various
+databases as well as passed by a user client via JSON strings.</p>
+</div>
+<div class="section" id="installation-from-sources">
+<h3>Installation from sources<a class="headerlink" href="#installation-from-sources" title="Permalink to this headline">¶</a></h3>
+<p>Install the dependencies:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://code.google.com/p/pni-libraries/">pni-libraries</a>,</div>
+<div class="line"><a class="reference external" href="http://www.tango-controls.org/static/PyTango/latest/doc/html/index.html">PyTango</a>,</div>
+<div class="line"><a class="reference external" href="http://sourceforge.net/projects/numpy/">numpy</a></div>
+</div>
+<p>Download the latest NexDaTaS version from</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/jkotan/nexdatas">NexDaTaS</a></div>
+</div>
+<p>and extract the sources.</p>
+<p>One can also download the lastest version directly from the git
+repository by</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/jkotan/nexdatas
+</pre></div>
+</div>
+<p>Next, run the installation script</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="technical-details">
+<h3>Technical details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="project_goals.rst">Project
+goals</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design">Details</a><ul>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design">Introduction</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design#General_overview_-_the_importance_of_the_client">General
+overview</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design#NXDL_extensions_for_data_sources">NXDL
+extensions</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design#Client_code">Client
+code</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/Design#Sequence_diagrams">Sequence
+diagrams</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="nxs-component-designer">
+<h2>NXS Component Designer<a class="headerlink" href="#nxs-component-designer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Introduction<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/component_designer.png" src="_images/component_designer.png" />
+<p>Component Designer is a GUI configuration tool dedicated to create
+components as well as datasources which constitute the XML configuration
+strings of Nexus Data Writer (NXS). The created XML elements can be
+saved in the extended Nexus XML format in Configuration Tango Server or
+in disk files.</p>
+</div>
+<div class="section" id="id2">
+<h3>Installation from sources<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Install the dependencies:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/download/">PyQt4</a>,</div>
+<div class="line"><a class="reference external" href="http://www.tango-controls.org/static/PyTango/latest/doc/html/index.html">PyTango</a>
+(optional)</div>
+</div>
+<p>PyTango is only needed if one wants to use <a class="reference external" href="#configserver.rst">Configuration
+Server</a></p>
+<p>Download the latest NXS Configuration Tool version from</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/jkotan/nexdatas.configtool">NXS Component Designer</a></div>
+</div>
+<p>and extract the sources.</p>
+<p>One can also download the lastest version directly from the git
+repository by</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/jkotan/nexdatas.configtool/
+</pre></div>
+</div>
+<p>Next, run the installation script</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python setup.py install
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-python"><div class="highlight"><pre>$ nxscomp_designer
+</pre></div>
+</div>
+<p>to run the tool.</p>
+</div>
+</div>
+<div class="section" id="nxs-configuration-server">
+<h2>NXS Configuration Server<a class="headerlink" href="#nxs-configuration-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Introduction<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>NXS Configuration Server is a Tango Server with its implementation based
+on a MySQL database. It allows to store XML configuration datasources
+and components. It also gives possibility to select mandatory components
+and perform the process of component merging.</p>
+</div>
+<div class="section" id="id4">
+<h3>Installation from sources<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Install the dependencies:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://sourceforge.net/projects/mysql-python/">MySQLdb</a>,</div>
+<div class="line"><a class="reference external" href="http://www.tango-controls.org/static/PyTango/latest/doc/html/index.html">PyTango</a></div>
+</div>
+<p>Download the latest version of NXS Configuration Server from</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/jkotan/nexdatas.configserver">NXS Configuration Server</a></div>
+</div>
+<p>and extract the sources.</p>
+<p>One can also download the lastest version directly from the git
+repository by</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/jkotan/nexdatas.configserver/
+</pre></div>
+</div>
+<p>Next, run the installation script</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>Technical details<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/configserver">Details</a><ul>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/configserver">Introduction</a></li>
+<li><a class="reference external" href="https://github.com/jkotan/nexdatas/wiki/configserver#client-code">Client
+code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="nexus-tools">
+<h2>Nexus Tools<a class="headerlink" href="#nexus-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Introduction<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Nexus Tools provides fast access to Configuration Server and Data Writer
+from command-line interface</p>
+</div>
+<div class="section" id="nxsdata">
+<h3>nxsdata<a class="headerlink" href="#nxsdata" title="Permalink to this headline">¶</a></h3>
+<p>The nxsdata program is a command-line interface to Nexus Data Tango
+Server. Program allows one to store NeXuS Data in H5 files. The writer
+provides storing data from other Tango devices, various databases as
+well as passed by a user client via JSON strings.</p>
+</div>
+<div class="section" id="nxsconfig">
+<h3>nxsconfig<a class="headerlink" href="#nxsconfig" title="Permalink to this headline">¶</a></h3>
+<p>The nxsconfig program is a command-line interface to NXS Configuration
+Tango Server. It allows one to read XML configuration datasources and
+components. It also gives possibility to perform the process of
+component merging.</p>
+</div>
+<div class="section" id="nxscreate">
+<h3>nxscreate<a class="headerlink" href="#nxscreate" title="Permalink to this headline">¶</a></h3>
+<p>The nxscreate program allows one to create simple datasources and
+components.</p>
+</div>
+<div class="section" id="id7">
+<h3>Installation from sources<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Install the dependencies:</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://www.tango-controls.org/static/PyTango/latest/doc/html/index.html">PyTango</a></div>
+</div>
+<p>Download the latest version of Nexus Tools from</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://github.com/jkotan/nexdatas.tools">Nexus Tools</a></div>
+</div>
+<p>and extract the sources.</p>
+<p>One can also download the lastest version directly from the git
+repository by</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/jkotan/nexdatas.tools/
+</pre></div>
+</div>
+<p>Next, run the installation script</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python setup.py install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="install-debian-packages">
+<h2>Install Debian packages<a class="headerlink" href="#install-debian-packages" title="Permalink to this headline">¶</a></h2>
+<p>Debian Wheezy packages can be found in the HDRI repository.</p>
+<p>To install the debian packages, add the PGP repository key</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo su
+$ wget -q -O - http://repos.pni-hdri.de/debian_repo.pub.gpg | apt-key add -
+</pre></div>
+</div>
+<p>and then download the corresponding source list</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /etc/apt/sources.list.d
+$ wget http://repos.pni-hdri.de/wheezy-pni-hdri.list
+</pre></div>
+</div>
+<p>Finally,</p>
+<div class="highlight-python"><div class="highlight"><pre>$ apt-get update
+$ apt-get install python-nxswriter python-nxsconfigserver nxsconfigtool nxstools
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-python"><div class="highlight"><pre>$ apt-get install python-nxsrecselector nxselector
+</pre></div>
+</div>
+<p>for component selector.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, DESY, Jan Kotanski, Eugen Wintersberger, Halil Pasic, Maria-Teresa Núñez-Pardo-de-Vera.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

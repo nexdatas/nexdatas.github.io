@@ -1,0 +1,55 @@
+<datasource type="DB | TANGO | CLIENT | SARDANA" strategy = "INIT | FINAL | STEP">
+ ... here goes all the information required ...
+</datasource>
+
+<datasource type="DB" strategy = "INIT">
+    <hostname> door.desy.de </hostname>
+    <port> 123456 </port>
+    <dbname> door_db </dbname> 
+    <query> 
+        SELECT proposal_name FROM proposals WHERE date = TODAY AND beamline = "P03" 
+    </query>
+</datasource>
+
+<datasource type="TANGO" strategy="STEP">
+    <hostname> door.desy.de </hostname>
+    <port> 123456 </port>
+    <device> .... </device>
+    <data type="attribute | property | command" 
+        name="blablabla">
+    maybe some additional information  
+    </data>
+</datasource>
+
+<datasource type="CLIENT" strategy="FINAL">
+    <name> temperature </name>
+    <unit> K </unit>
+
+</datasource>
+
+<datasource type="SARDANA" strategy="STEP">
+    <hostname> door.desy.de </hostname>
+    <port> 123456 </port>
+    <door> 
+        name of the door to read from
+    </door>
+    <field> 
+        name of the field to read from the JSON data provided by sardana
+    </field>
+</datasource>
+
+Examples
+
+position field of an NX_positioner object
+<field name="value" ....>
+
+    <attribute name="units" ....>
+        <datasource type="TANGO" strategy="INIT">
+            .... all the TANGO information ...
+        </datasource>
+    </attribute>
+
+    <datasource type="TANGO" strategy="STEP">
+        ...all the TANGO information ...
+    </datasource>
+</field>

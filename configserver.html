@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Server clients &mdash; NeXDaTaS 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="NeXDaTaS 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="NXDL extensions for data sources" href="design.html" />
+    <link rel="prev" title="Software" href="home.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          NeXDaTaS</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-data-writer">Nexus Data Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-component-designer">NXS Component Designer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-configuration-server">NXS Configuration Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-tools">Nexus Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="home.html#install-debian-packages">Install Debian packages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Server clients</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">NXDL extensions for data sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#client-datasource"><em>CLIENT</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#tango-datasource"><em>TANGO</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#db-datasource"><em>DB</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#pyeval-datasource"><em>PYEVAL</em> datasource</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Server clients</a><ul>
+<li><a class="reference internal" href="#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
+<li><a class="reference internal" href="#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="home.html" title="Previous Chapter: Software"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Software</span>
+    </a>
+  </li>
+  <li>
+    <a href="design.html" title="Next Chapter: NXDL extensions for data sources"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">NXDL extensions ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="server-clients">
+<h1>Server clients<a class="headerlink" href="#server-clients" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="client-code-of-nexus-data-writer">
+<h2>Client code of NeXus Data Writer<a class="headerlink" href="#client-code-of-nexus-data-writer" title="Permalink to this headline">¶</a></h2>
+<p>In order to use Nexus Data Server one has to write a client code. Some
+simple client codes are in the nexdatas repository. In this section we
+add some comments related to the client code.</p>
+<p>To use the Tango Server we must import the <tt class="docutils literal"><span class="pre">PyTango</span></tt> module and create
+<tt class="docutils literal"><span class="pre">DeviceProxy</span></tt> for the server.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">PyTango</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="s">&quot;p09/tdw/r228&quot;</span>
+<span class="n">dpx</span> <span class="o">=</span> <span class="n">PyTango</span><span class="o">.</span><span class="n">DeviceProxy</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">set_timeout_millis</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">dpx</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here <tt class="docutils literal"><span class="pre">device</span></tt> corresponds to a name of our Nexus Data Server.
+<tt class="docutils literal"><span class="pre">Init()</span></tt> method resets the state of the server.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dpx</span><span class="o">.</span><span class="n">FileName</span> <span class="o">=</span> <span class="s">&quot;test.h5&quot;</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">OpenFile</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We set the name of the output HDF5 file and open it.</p>
+<p>Now we are ready to pass the XML settings describing a structure of the
+output file as well as defining a way of data storing. Examples of the
+XMLSettings can be found in the XMLExamples directory.</p>
+<div class="highlight-python"><div class="highlight"><pre>xml = open(&quot;test.xml&quot;, &#39;r&#39;).read()
+dpx.XMLSettings = xml
+
+dpx.JSONRecord = &#39;{&quot;data&quot;: {&quot;parameterA&quot;:0.2},
+                      &quot;decoders&quot;:{&quot;DESY2D&quot;:&quot;desydecoders.desy2Ddec.desy2d&quot;},
+                      &quot;datasources&quot;:{&quot;MCLIENT&quot;:&quot;sources.DataSources.LocalClientSource&quot;}}&#39;
+
+dpx.OpenEntry()
+</pre></div>
+</div>
+<p>We read our XML settings settings from a file and pass them to the
+server via the <tt class="docutils literal"><span class="pre">XMLSettings</span></tt> attribute. Then we open an entry group
+related to the XML configuration. Optionally, we can also set
+<tt class="docutils literal"><span class="pre">JSONRecord</span></tt>, i.e. an attribute which contains a global JSON string
+with data needed to store during opening the entry and also other stages
+of recording. If external decoder for <tt class="docutils literal"><span class="pre">DevEncoded</span></tt> data is need one
+can registred it passing its packages and class names in <tt class="docutils literal"><span class="pre">JSONRecord</span></tt>
+e.g. &#8220;desy2d&#8221; class of &#8220;DESY2D&#8221; label in &#8220;desydecoders.desy2Ddec&#8221;
+package. Similarly making use of &#8220;datasources&#8221; records of the JSON
+string one can registred additional datasources. The <tt class="docutils literal"><span class="pre">OpenEntry</span></tt>
+method stores data defined in the XML string with <tt class="docutils literal"><span class="pre">strategy=INIT</span></tt>. The
+<tt class="docutils literal"><span class="pre">JSONRecord</span></tt> attribute can be changed during recording our data.</p>
+<p>After finalization of the configuration process we can start recording
+the main experiment data in a <tt class="docutils literal"><span class="pre">STEP</span></tt> mode.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dpx</span><span class="o">.</span><span class="n">Record</span><span class="p">(</span><span class="s">&#39;{&quot;data&quot;: {&quot;p09/counter/exp.01&quot;:0.1, &quot;p09/counter/exp.02&quot;:1.1}}&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Every time we call the <tt class="docutils literal"><span class="pre">Record</span></tt> method all nexus fields defined with
+<tt class="docutils literal"><span class="pre">strategy=STEP</span></tt> are extended by one record unit and the assigned to
+them data is stored. As the method argument we pass a local JSON string
+with the client data. To record the client data one can also use the
+global <tt class="docutils literal"><span class="pre">JSONRecord</span></tt> string. Contrary to the global JSON string the
+local one is only valid during one record step.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dpx</span><span class="o">.</span><span class="n">Record</span><span class="p">(</span><span class="s">&#39;{&quot;data&quot;: {&quot;emittance_x&quot;: 0.1},  &quot;triggers&quot;:[&quot;trigger1&quot;, &quot;trigger2&quot;]  }&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you denote in your XML configuration string some fields by additional
+trigger attributes you may ask the server to store your data only in
+specific record steps. This can be helpful if you want to store your
+data in asynchronous mode. To this end you define in the local JSON
+string a list of triggers which are used in the current record step.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dpx</span><span class="o">.</span><span class="n">JSONRecord</span> <span class="o">=</span> <span class="s">&#39;{&quot;data&quot;: {&quot;parameterB&quot;:0.3}}&#39;</span>
+<span class="n">dpx</span><span class="o">.</span><span class="n">CloseEntry</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After scanning experiment data in &#8216;STEP&#8217; mode we close the entry. To
+this end we call the <tt class="docutils literal"><span class="pre">CloseEntry</span></tt> method which also stores data
+defined with <tt class="docutils literal"><span class="pre">strategy=FINAL</span></tt>.</p>
+<p>Since our HDF5 file can contains many entries we can again open the
+entry and repeat our record procedure. If we define more than one entry
+in one XML setting string the defined entries are recorded parallel with
+the same steps.</p>
+<p>Finally, we can close our output file by</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dpx</span><span class="o">.</span><span class="n">CloseFile</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Additionally, one can use asynchronous versions of <tt class="docutils literal"><span class="pre">OpenEntry</span></tt>,
+<tt class="docutils literal"><span class="pre">Record</span></tt>, <tt class="docutils literal"><span class="pre">CloseEntry</span></tt>, i.e. <tt class="docutils literal"><span class="pre">OpenEntryAsynch</span></tt>, <tt class="docutils literal"><span class="pre">RecordAsynch</span></tt>,
+<tt class="docutils literal"><span class="pre">CloseEntryAsynch</span></tt>. In this case data is stored in a background thread
+and during this writing Tango Data Server has a RUNNING state.</p>
+<p>In order to build the XML configurations in the easy way the authors of
+the server provide for this purpose a specialized GUI tool, Component
+Designer. The attached to the server XML examples was created by
+<tt class="docutils literal"><span class="pre">XMLFile</span></tt> class defined in <tt class="docutils literal"><span class="pre">XMLCreator/simpleXML.py</span></tt>.</p>
+</div>
+<div class="section" id="client-code-of-nexus-configuration-server">
+<h2>Client code of NeXus Configuration Server<a class="headerlink" href="#client-code-of-nexus-configuration-server" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Configuration Server</strong> is a Tango process dedicated to store
+NXDL-like configuration needed for running the Data Writer Tango server.
+The server uses a MYSQL database as storage system. The <tt class="docutils literal"><span class="pre">ndts.sql</span></tt>
+script from the repository can be used to create the required DB tables.</p>
+<p>In the Configuration Server the configuration is memorized in two types
+of elements: datasources and components.</p>
+<p><strong>DataSources</strong> describe access to input data, i.e. to specific TANGO
+devices, other databases as well as to client data.</p>
+<p><strong>Components</strong> specify Nexus tree with positions of datasets for
+particular pieces of hardware and writing strategy for their
+corresponding data. * They can include datasources directly as well as
+links to datasources defined in the server. In this last case the syntax
+<tt class="docutils literal"><span class="pre">$datasources.&lt;ds_name&gt;</span></tt> is used. * They can also hold links to other
+components which describe their dependencies. The
+<tt class="docutils literal"><span class="pre">$components.&lt;comp_name&gt;</span></tt> syntax is used for this purpouse. *
+Finally, the components can contain variables. Variables are defined in
+XML code by <tt class="docutils literal"><span class="pre">$var.&lt;var_name&gt;#'default_value'</span></tt> and can be provided to
+the Configuration Server via a JSON string. Not defined default value
+has a value of an empty string.</p>
+<p>All elements of the configuration can be created by a dedicated GUI tool
+- <strong>ComponentDesigner</strong>. This tool connects to a Configuration Server,
+fetchs the elements from the database, shows them, and allows
+modification or creation of new ones. The changes can be also stored in
+the database.</p>
+<p>In order to create the configuration for an specific nexus file the
+Configuration Server merges all required and dependent components,
+together with their datasources and provided values of the variables. As
+a result it returns a single XML string. This XML string can be passed
+directly into a dedicated <strong>Tango Data Writer</strong> attribute.</p>
+<p>In this section we present an example how to communicate with the
+Configuration Server using PyTango.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">PyTango</span>
+
+<span class="n">cnfServer</span> <span class="o">=</span> <span class="n">PyTango</span><span class="o">.</span><span class="n">DeviceProxy</span><span class="p">(</span><span class="s">&quot;p00/xmlconfigserver/exp.01&quot;</span><span class="p">)</span>
+
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">JSONSettings</span> <span class="o">=</span> \
+    <span class="s">&#39;{&quot;host&quot;:&quot;localhost&quot;,&quot;db&quot;:&quot;ndts_p02&quot;,&quot;read_default_file&quot;:&quot;/etc/my.cnf&quot;,&quot;use_unicode&quot;:true}&#39;</span>
+
+<span class="c"># opens DB connection</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">Open</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>After creating the server proxy we can set the configuration of the
+MYSQL DB connection using the attribute <tt class="docutils literal"><span class="pre">JSONSettings</span></tt>, this attribute
+is memorized so ,after setting it the first time, it has to be set again
+only when the configuration of the DB connection is changed. The command
+Open opens the connection to the DB specified by <tt class="docutils literal"><span class="pre">JSONSettings</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># stores default component</span>
+<span class="n">cpxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;default.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">cpxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreComponent</span><span class="p">(</span><span class="s">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c"># stores slit1 component in DB</span>
+<span class="n">cpxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;slit1.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">cpxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreComponent</span><span class="p">(</span><span class="s">&#39;slit1&#39;</span><span class="p">)</span>
+
+<span class="c"># stores slit2 component in DB</span>
+<span class="n">cpxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;slit2.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">cpxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreComponent</span><span class="p">(</span><span class="s">&#39;slit2&#39;</span><span class="p">)</span>
+
+<span class="c"># stores slit3 component in DB</span>
+<span class="n">cpxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;slit3.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">cpxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreComponent</span><span class="p">(</span><span class="s">&#39;slit3&#39;</span><span class="p">)</span>
+
+<span class="c"># stores pilatus300k component in DB</span>
+<span class="n">cpxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;pilatus.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">cpxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreComponent</span><span class="p">(</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">)</span>
+
+
+<span class="c"># stores motor01 datasource in DB</span>
+<span class="n">dsxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;motor.ds.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">dsxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreDataSource</span><span class="p">(</span><span class="s">&#39;motor01&#39;</span><span class="p">)</span>
+
+<span class="c"># stores motor02 datasource in DB</span>
+<span class="n">dsxml</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;motor.ds.xml&quot;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span> <span class="o">=</span> <span class="n">dsxml</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">StoreDataSource</span><span class="p">(</span><span class="s">&#39;motor02&#39;</span><span class="p">)</span>
+
+
+<span class="c"># removes slit3 component from DB</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">DeleteComponent</span><span class="p">(</span><span class="s">&#39;slit3&#39;</span><span class="p">)</span>
+
+<span class="c"># removes motor02 datasource from DB</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">DeleteDataSource</span><span class="p">(</span><span class="s">&#39;motor02&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The examples above show an alternative to the ComponentDesigner for
+creating or deleting components and datasources using python scripts.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides names of available components</span>
+<span class="n">cmpNameList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">AvailableComponents</span><span class="p">()</span>
+<span class="c"># provides names of available datasources</span>
+<span class="n">dsNameList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">AvailableDataSources</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The commands above get information about names of available components
+and datasources in the Configuration Server.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides a list of required components</span>
+<span class="n">cmpList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">Components</span><span class="p">(</span><span class="n">cmpNameList</span><span class="p">)</span>
+<span class="c"># provides a list of required Datasources</span>
+<span class="n">dsList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">DataSources</span><span class="p">(</span><span class="n">dsNameList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The commands above provide the XML string corresponding to the stored
+elements given as argument.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides a list of DataSources from given components</span>
+<span class="n">dsList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">ComponentDataSources</span><span class="p">(</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">)</span>
+<span class="n">dsList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">ComponentsDataSources</span><span class="p">([</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">,</span> <span class="s">&#39;slit1&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Using the above commands one get the datasources related to the
+requested components.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides a dependent components</span>
+<span class="n">cpList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">DependentComponents</span><span class="p">([</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">,</span> <span class="s">&#39;slit3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The list of dependent components can be requested using the command
+above.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides a list of Variables from a given components</span>
+<span class="n">varList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">ComponentVariables</span><span class="p">(</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">)</span>
+<span class="n">varList</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">ComponentsVariables</span><span class="p">([</span><span class="s">&#39;pilatus300k&#39;</span><span class="p">,</span> <span class="s">&#39;slit3&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Commands for getting the list of variables related to particular
+components are also provided.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sets values of variables</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">Variables</span> <span class="o">=</span> <span class="s">&#39;{&quot;entry_id&quot;:&quot;123&quot;,&quot;beamtime_id&quot;:&quot;123453535453&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>The values of the variables can be passed to the Configuration Server
+via a JSON string.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># sets given component as mandatory for the final configuration</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">SetMandatoryComponents</span><span class="p">([</span><span class="s">&#39;default&#39;</span><span class="p">,</span><span class="s">&#39;slit1&#39;</span><span class="p">])</span>
+<span class="c"># un-sets given component as mandatory for the final configuration</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">UnsetMandatoryComponents</span><span class="p">([</span><span class="s">&#39;slit1&#39;</span><span class="p">])</span>
+
+<span class="c"># provides names of mandatory components</span>
+<span class="n">man</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">MandatoryComponents</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Some of the components can be set as mandatory in the final
+configuration, the Configuration Server provides the above commands for
+set/unset or display them.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># provides the current configuration version</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">Version</span>
+</pre></div>
+</div>
+<p>The revision number associated to a given configuration is provided
+together with Configuration Server version in the attribute <tt class="docutils literal"><span class="pre">Version</span></tt>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># defines datasources set to fetched in the strategy STEP mode</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">STEPDataSources</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;exp_mot01&quot;</span><span class="p">,</span> <span class="s">&quot;exp_mot05&quot;</span><span class="p">]</span>
+<span class="c"># creates the final configuration from slit2 and pilatus300k</span>
+<span class="c"># as well as all mandatory components</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">CreateConfiguration</span><span class="p">([</span><span class="s">&#39;slit2&#39;</span><span class="p">,</span> <span class="s">&#39;pilatus300k&#39;</span><span class="p">])</span>
+<span class="c"># XML string ready to use by Tango Data Server</span>
+<span class="n">finalXML</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">XMLString</span>
+</pre></div>
+</div>
+<p>In order to create our final configuration we execute
+<tt class="docutils literal"><span class="pre">CreateConfiguration</span></tt> command with a list of names of required
+components. The command merges these components with mandatory ones and
+provides the resulting NXDL-like configuration in the <tt class="docutils literal"><span class="pre">XMLString</span></tt>
+attribute. Before calling <tt class="docutils literal"><span class="pre">CreateConfiguration</span></tt> the user may define
+which INIT/FINAL component datasources should be fetched and written in
+the strategy STEP mode.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># merges given components</span>
+<span class="n">mergedComp</span> <span class="o">=</span> <span class="n">cnfServer</span><span class="o">.</span><span class="n">Merge</span><span class="p">([</span><span class="s">&#39;slit2&#39;</span><span class="p">,</span> <span class="s">&#39;pilatus300k&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Similarly,the <tt class="docutils literal"><span class="pre">Merge</span></tt> command provides configuration by unresolved
+links to datasoures and with non-assigned variable values.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># closes connection to DB</span>
+<span class="n">cnfServer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Command <tt class="docutils literal"><span class="pre">close</span></tt> terminates our connection to the DB server.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016, DESY, Jan Kotanski, Eugen Wintersberger, Halil Pasic, Maria-Teresa Núñez-Pardo-de-Vera.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
