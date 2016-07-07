@@ -1,7 +1,3 @@
-############
-Introduction
-############
-
 Project goals
 =============
 

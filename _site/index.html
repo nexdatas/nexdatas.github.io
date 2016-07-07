@@ -30,7 +30,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="NeXDaTaS 1.0.0 documentation" href="#" />
-    <link rel="next" title="Introduction" href="project_goals.html" />
+    <link rel="next" title="Project goals" href="project_goals.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -66,29 +66,18 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Project goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">NXDL extensions for data sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#client-datasource"><em>CLIENT</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#tango-datasource"><em>TANGO</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#db-datasource"><em>DB</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#pyeval-datasource"><em>PYEVAL</em> datasource</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="home.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-data-writer">Nexus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-component-designer">NXS Component Designer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-configuration-server">NXS Configuration Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-tools">Nexus Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#install-debian-packages">Install Debian packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configserver.html">Server clients</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design.html#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
 </ul>
 </ul>
 </li>
@@ -113,7 +102,7 @@
               
                 
   <li>
-    <a href="project_goals.html" title="Next Chapter: Introduction"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Introduction &raquo;</span>
+    <a href="project_goals.html" title="Next Chapter: Project goals"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Project goals &raquo;</span>
     </a>
   </li>
               
@@ -143,47 +132,32 @@
       
   <div class="section" id="welcome-to-nexdatas-s-documentation">
 <h1>Welcome to NeXDaTaS&#8217;s documentation!<a class="headerlink" href="#welcome-to-nexdatas-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This project contains the following repositories:</p>
+<p>This project contains the following NeXus software:</p>
 <ul class="simple">
-<li><a class="reference external" href="home.html#nexus-data-writer">Nexus Data Writer</a> implemented as a Tango
-server</li>
-<li><a class="reference external" href="home.html#nxs-component-designer">Configuration Tool</a> written in PyQt ,
-NXS Component Designer</li>
-<li><a class="reference external" href="home.html#nxs-configuration-server">Configuration Server</a> implemented as
-a Tango server on a MySQL database</li>
-<li><a class="reference external" href="home.html#nexus-tools">Nexus Command-line tools</a> provides fast access to
-Configuration Server and Data Writer from command-line interface</li>
+<li><a class="reference external" href="https://nexdatas.github.io/writer">Data Writer</a> - writer implemented as a Tango server</li>
+<li><a class="reference external" href="https://nexdatas.github.io/configserver">Configuration Server</a> - MySQL database frond-end implemented as a Tango server</li>
+<li><a class="reference external" href="https://nexdatas.github.io/recselector">Selector Server</a> - configuration configuration selector implemented as a Tango server</li>
+<li><a class="reference external" href="https://nexdatas.github.io/configtool">Component Designer</a>  - GUI configuration tool written in PyQt</li>
+<li><a class="reference external" href="https://nexdatas.github.io/selector">Component Selector</a>  - GUI component selector written in PyQt</li>
+<li><a class="reference external" href="https://nexdatas.github.io/taurusgui">NeXus Macro GUI</a>  - Macro GUI with additional Component Selector widget written in Taurus</li>
+<li><a class="reference external" href="https://nexdatas.github.io/sardanascanrecorders">Sardana Recorder</a> - NeXus sardana recorder</li>
+<li><a class="reference external" href="https://nexdatas.github.io/tools">Command-line tools</a> - scripts providing fast access to Configuration Server and Data Writer from command-line interface</li>
 <li>Simple examples of configuration files and control clients</li>
 </ul>
-<p><a class="reference external" href="home.html#install-debian-packages">To install Debian packages ...</a></p>
+<p><a class="reference external" href="https://nexdatas.github.io/writer#debian-packages">To install Debian packages ...</a></p>
 <p>Authors: <em>Jan Kotański, Eugen Wintersberger, Halil Pasic, Maria-Teresa
 Núñez-Pardo-de-Vera</em></p>
+<p>Software Documentation:</p>
+<ul class="simple">
+<li></li>
+</ul>
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="home.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-data-writer">Nexus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-component-designer">NXS Component Designer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-configuration-server">NXS Configuration Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-tools">Nexus Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#install-debian-packages">Install Debian packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configserver.html">Server clients</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="design.html#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Project goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">NXDL extensions for data sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html#sequence-diagrams">Sequence diagrams</a></li>
 </ul>
 </div>
 </div>

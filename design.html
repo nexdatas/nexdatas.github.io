@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Design &mdash; NeXDaTaS 1.0.0 documentation</title>
+    <title>NXDL extensions for data sources &mdash; NeXDaTaS 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,7 +30,7 @@
     <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="NeXDaTaS 1.0.0 documentation" href="index.html" />
-    <link rel="prev" title="Server clients" href="configserver.html" />
+    <link rel="prev" title="Project goals" href="project_goals.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -66,29 +66,18 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#project-goals">Project goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html">Project goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_goals.html#the-importance-of-the-client">The importance of the client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">NXDL extensions for data sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#client-datasource"><em>CLIENT</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tango-datasource"><em>TANGO</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#db-datasource"><em>DB</em> datasource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyeval-datasource"><em>PYEVAL</em> datasource</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="home.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-data-writer">Nexus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-component-designer">NXS Component Designer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nxs-configuration-server">NXS Configuration Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#nexus-tools">Nexus Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="home.html#install-debian-packages">Install Debian packages</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configserver.html">Server clients</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-data-writer">Client code of NeXus Data Writer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configserver.html#client-code-of-nexus-configuration-server">Client code of NeXus Configuration Server</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sequence-diagrams">Sequence diagrams</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="#sequence-diagrams">Sequence diagrams</a></li>
 </ul>
 </ul>
 </li>
@@ -102,8 +91,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Design</a><ul>
-<li><a class="reference internal" href="#nxdl-extensions-for-data-sources">NXDL extensions for data sources</a><ul>
+<li><a class="reference internal" href="#">NXDL extensions for data sources</a><ul>
 <li><a class="reference internal" href="#the-strategy-tag">The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag</a></li>
 <li><a class="reference internal" href="#the-datasource-tag">The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag</a></li>
 <li><a class="reference internal" href="#client-datasource"><em>CLIENT</em> datasource</a><ul>
@@ -129,8 +117,6 @@
 </li>
 <li><a class="reference internal" href="#sequence-diagrams">Sequence diagrams</a></li>
 </ul>
-</li>
-</ul>
 </ul>
 </li>
               
@@ -139,7 +125,7 @@
               
                 
   <li>
-    <a href="configserver.html" title="Previous Chapter: Server clients"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Server clients</span>
+    <a href="project_goals.html" title="Previous Chapter: Project goals"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project goals</span>
     </a>
   </li>
               
@@ -167,10 +153,8 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="design">
-<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="nxdl-extensions-for-data-sources">
-<h2>NXDL extensions for data sources<a class="headerlink" href="#nxdl-extensions-for-data-sources" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="nxdl-extensions-for-data-sources">
+<h1>NXDL extensions for data sources<a class="headerlink" href="#nxdl-extensions-for-data-sources" title="Permalink to this headline">¶</a></h1>
 <p>In order to describe various data sources <a class="reference external" href="http://download.nexusformat.org/sphinx/nxdl.html">the NXDL
 standard</a> has been
 extended by XML tags listed below. Thus, <tt class="docutils literal"><span class="pre">&lt;strategy</span> <span class="pre">/&gt;</span></tt> and
@@ -183,15 +167,15 @@ extended by XML tags listed below. Thus, <tt class="docutils literal"><span clas
 </ul>
 <p>The other ones are nested inside <tt class="docutils literal"><span class="pre">&lt;datasource/&gt;</span></tt> tag.</p>
 <div class="section" id="the-strategy-tag">
-<h3>The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag<a class="headerlink" href="#the-strategy-tag" title="Permalink to this headline">¶</a></h3>
+<h2>The <tt class="docutils literal"><span class="pre">&lt;strategy&gt;</span></tt> tag<a class="headerlink" href="#the-strategy-tag" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>strategy</strong> tag defines when and in which way the data is stored.
 An example of usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;field name=&quot;energy&quot; type=&quot;NX_FLOAT&quot; units=&quot;GeV&quot; &gt;
-  &lt;strategy mode=&quot;STEP&quot; trigger=&quot;trigger1&quot; /&gt;
-  &lt;datasource type=&quot;CLIENT&quot;&gt;
-    &lt;record name=&quot;counter_1&quot;/&gt;
-  &lt;/datasource&gt;
-&lt;/field&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;energy&quot;</span> <span class="na">type=</span><span class="s">&quot;NX_FLOAT&quot;</span> <span class="na">units=</span><span class="s">&quot;GeV&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;strategy</span> <span class="na">mode=</span><span class="s">&quot;STEP&quot;</span> <span class="na">trigger=</span><span class="s">&quot;trigger1&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;CLIENT&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;counter_1&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/datasource&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
 </pre></div>
 </div>
 <p>The tag can have the following attributes:</p>
@@ -231,16 +215,16 @@ the record type</p>
 <p>The <strong>content</strong> of the strategy tags is an label describing data merged
 into the H5 file by a post-processing program.</p>
 <p>An example of usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;field name=&quot;energy&quot; type=&quot;NX_FLOAT&quot; units=&quot;GeV&quot; &gt;
-  &lt;strategy mode=&quot;POSTRUN&quot; &gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;field</span> <span class="na">name=</span><span class="s">&quot;energy&quot;</span> <span class="na">type=</span><span class="s">&quot;NX_FLOAT&quot;</span> <span class="na">units=</span><span class="s">&quot;GeV&quot;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;strategy</span> <span class="na">mode=</span><span class="s">&quot;POSTRUN&quot;</span> <span class="nt">&gt;</span>
     http://haso.desy.de:/data/energy.dat
-  &lt;/strategy&gt;
-&lt;/field&gt;
+  <span class="nt">&lt;/strategy&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="the-datasource-tag">
-<h3>The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag<a class="headerlink" href="#the-datasource-tag" title="Permalink to this headline">¶</a></h3>
+<h2>The <tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt> tag<a class="headerlink" href="#the-datasource-tag" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>datasource</strong> tag specifies a type of the used data sources. They
 can be one of built types, i.e. <em>CLIENT</em>, <em>TANGO</em>, <em>DB</em>, <em>PYEVAL</em> or
 external ones &#8211; defined in external python package and registered via
@@ -259,16 +243,16 @@ JSON data.</p>
 </ul>
 </div>
 <div class="section" id="client-datasource">
-<h3><em>CLIENT</em> datasource<a class="headerlink" href="#client-datasource" title="Permalink to this headline">¶</a></h3>
+<h2><em>CLIENT</em> datasource<a class="headerlink" href="#client-datasource" title="Permalink to this headline">¶</a></h2>
 <p>The CLIENT datasource allows to read data from client JSON strings. It
 should contain a <tt class="docutils literal"><span class="pre">&lt;record</span> <span class="pre">/&gt;</span></tt> tag. An example of usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;CLIENT&quot; name=&quot;exp_c01&quot;&gt;
-  &lt;record name=&quot;counter_1&quot;/&gt;
-&lt;/datasource&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;CLIENT&quot;</span> <span class="na">name=</span><span class="s">&quot;exp_c01&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;counter_1&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/datasource&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="record">
-<h4><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#record" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>record</strong> tag defines the fetched data by its name. It has an
 attrbute</p>
 <ul class="simple">
@@ -281,18 +265,18 @@ attrbute</p>
 </div>
 </div>
 <div class="section" id="tango-datasource">
-<h3><em>TANGO</em> datasource<a class="headerlink" href="#tango-datasource" title="Permalink to this headline">¶</a></h3>
+<h2><em>TANGO</em> datasource<a class="headerlink" href="#tango-datasource" title="Permalink to this headline">¶</a></h2>
 <p>The TANGO datasource allows to read data from other TANGO devices. It
 should contain <tt class="docutils literal"><span class="pre">&lt;device/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;record/&gt;</span></tt> tags. An example of
 usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;TANGO&quot;&gt;
-  &lt;device hostname=&quot;haso.desy.de&quot; member=&quot;attribute&quot; name=&quot;p09/motor/exp.01&quot; port=&quot;10000&quot; encoding=&quot;LIMA_VIDEO_IMAGE&quot;/&gt;
-  &lt;record name=&quot;Position&quot;/&gt;
-&lt;/datasource&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;TANGO&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;device</span> <span class="na">hostname=</span><span class="s">&quot;haso.desy.de&quot;</span> <span class="na">member=</span><span class="s">&quot;attribute&quot;</span> <span class="na">name=</span><span class="s">&quot;p09/motor/exp.01&quot;</span> <span class="na">port=</span><span class="s">&quot;10000&quot;</span> <span class="na">encoding=</span><span class="s">&quot;LIMA_VIDEO_IMAGE&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;Position&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/datasource&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="device">
-<h4><tt class="docutils literal"><span class="pre">&lt;device&gt;</span></tt><a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;device&gt;</span></tt><a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>device</strong> tag describes the Tango device which is used to get the
 data. It has the following attributes:</p>
 <ul class="simple">
@@ -312,7 +296,7 @@ data. It has the following attributes:</p>
 simultaneously and only ones during one experimental step.</p>
 </div>
 <div class="section" id="id1">
-<h4><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;record&gt;</span></tt><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>record</strong> tag defines the fetched data by its name. It has an
 attrbute</p>
 <ul class="simple">
@@ -321,20 +305,20 @@ attrbute</p>
 </div>
 </div>
 <div class="section" id="db-datasource">
-<h3><em>DB</em> datasource<a class="headerlink" href="#db-datasource" title="Permalink to this headline">¶</a></h3>
+<h2><em>DB</em> datasource<a class="headerlink" href="#db-datasource" title="Permalink to this headline">¶</a></h2>
 <p>The DB datasource allows to read data from accessible databases. It
 should contain <tt class="docutils literal"><span class="pre">&lt;database</span> <span class="pre">/&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt> tags. An example of
 usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;DB&quot;&gt;
-  &lt;database dbname=&quot;tango&quot; dbtype=&quot;MYSQL&quot; hostname=&quot;haso.desy.de&quot;/&gt;
-  &lt;query format=&quot;SPECTRUM&quot;&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;DB&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;database</span> <span class="na">dbname=</span><span class="s">&quot;tango&quot;</span> <span class="na">dbtype=</span><span class="s">&quot;MYSQL&quot;</span> <span class="na">hostname=</span><span class="s">&quot;haso.desy.de&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;query</span> <span class="na">format=</span><span class="s">&quot;SPECTRUM&quot;</span><span class="nt">&gt;</span>
     SELECT pid FROM device limit 10
-  &lt;/query&gt;
-&lt;/datasource&gt;
+  <span class="nt">&lt;/query&gt;</span>
+<span class="nt">&lt;/datasource&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="database">
-<h4><tt class="docutils literal"><span class="pre">&lt;database&gt;</span></tt><a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;database&gt;</span></tt><a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>database</strong> tag specifies parameters to connect to the required
 database. It acquires the attirbutes</p>
 <ul class="simple">
@@ -355,7 +339,7 @@ database. It acquires the attirbutes</p>
 <p>The <strong>content</strong> of the database tag defines Oracle DSN string (optional)</p>
 </div>
 <div class="section" id="query">
-<h4><tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt><a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;query&gt;</span></tt><a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>query</strong> tag defines the database query which fetches the data. It
 has one attribute</p>
 <ul class="simple">
@@ -368,47 +352,47 @@ has one attribute</p>
 </ul>
 <p>The <strong>content</strong> of the query tags is the SQL query</p>
 <p>Another example of usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;DB&quot;&gt;
-  &lt;database dbname=&quot;mydb&quot; dbtype=&quot;PGSQL&quot;/&gt;
-  &lt;query format=&quot;IMAGE&quot;&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;DB&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;database</span> <span class="na">dbname=</span><span class="s">&quot;mydb&quot;</span> <span class="na">dbtype=</span><span class="s">&quot;PGSQL&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;query</span> <span class="na">format=</span><span class="s">&quot;IMAGE&quot;</span><span class="nt">&gt;</span>
     SELECT * FROM weather limit 3
-  &lt;/query&gt;
-&lt;/datasource&gt;
+  <span class="nt">&lt;/query&gt;</span>
+<span class="nt">&lt;/datasource&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="pyeval-datasource">
-<h3><em>PYEVAL</em> datasource<a class="headerlink" href="#pyeval-datasource" title="Permalink to this headline">¶</a></h3>
+<h2><em>PYEVAL</em> datasource<a class="headerlink" href="#pyeval-datasource" title="Permalink to this headline">¶</a></h2>
 <p>The PYEVAL datasource allows to read data from other datasources and
 evaluate it by a user python script. An example of usage:</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;datasource type=&quot;PYEVAL&quot;&gt;
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;PYEVAL&quot;</span><span class="nt">&gt;</span>
 
-  &lt;datasource type=&quot;TANGO&quot; name=&quot;position&quot;&gt;
-    &lt;device hostname=&quot;haso.desy.de&quot; member=&quot;attribute&quot; name=&quot;p09/motor/exp.01&quot; port=&quot;10000&quot;/&gt;
-    &lt;record name=&quot;Position&quot;/&gt;
-  &lt;/datasource&gt;
+  <span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;TANGO&quot;</span> <span class="na">name=</span><span class="s">&quot;position&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;device</span> <span class="na">hostname=</span><span class="s">&quot;haso.desy.de&quot;</span> <span class="na">member=</span><span class="s">&quot;attribute&quot;</span> <span class="na">name=</span><span class="s">&quot;p09/motor/exp.01&quot;</span> <span class="na">port=</span><span class="s">&quot;10000&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;Position&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/datasource&gt;</span>
 
-  &lt;datasource type=&quot;CLIENT&quot; name=&quot;shift&quot;&gt;
-    &lt;record name=&quot;exp_c01&quot;/&gt;
-  &lt;/datasource&gt;
+  <span class="nt">&lt;datasource</span> <span class="na">type=</span><span class="s">&quot;CLIENT&quot;</span> <span class="na">name=</span><span class="s">&quot;shift&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;record</span> <span class="na">name=</span><span class="s">&quot;exp_c01&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/datasource&gt;</span>
 
-  &lt;result name=&quot;finalposition&quot;&gt;
+  <span class="nt">&lt;result</span> <span class="na">name=</span><span class="s">&quot;finalposition&quot;</span><span class="nt">&gt;</span>
     ds.finalposition = ds.position + ds.shift
-  &lt;/result&gt;
+  <span class="nt">&lt;/result&gt;</span>
 
-&lt;/datasource&gt;
+<span class="nt">&lt;/datasource&gt;</span>
 </pre></div>
 </div>
 <div class="section" id="datasource">
-<h4><tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt><a class="headerlink" href="#datasource" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;datasource&gt;</span></tt><a class="headerlink" href="#datasource" title="Permalink to this headline">¶</a></h3>
 <p>The PYEVAL datasource can contain other datasources. They have to have
 defined name attributes. Those names with additional prefix &#8216;ds.&#8217;
 correspond to input variable names from the python script, i.e.
 ds.<strong>name</strong>.</p>
 </div>
 <div class="section" id="result">
-<h4><tt class="docutils literal"><span class="pre">&lt;result&gt;</span></tt><a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h4>
+<h3><tt class="docutils literal"><span class="pre">&lt;result&gt;</span></tt><a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>result</strong> contains python script which evaluates input data. It has
 the following attribute:
 * <strong>name</strong> corresponding to a result name. It
@@ -418,11 +402,10 @@ value <strong>name</strong>=&#8221;result&#8221;. (optional)</p>
 </div>
 </div>
 <div class="section" id="sequence-diagrams">
-<h2>Sequence diagrams<a class="headerlink" href="#sequence-diagrams" title="Permalink to this headline">¶</a></h2>
+<h1>Sequence diagrams<a class="headerlink" href="#sequence-diagrams" title="Permalink to this headline">¶</a></h1>
 <img alt="_images/basic_server_client_communication.png" src="_images/basic_server_client_communication.png" />
 <img alt="_images/configuration.png" src="_images/configuration.png" />
 <img alt="_images/recording_data.png" src="_images/recording_data.png" />
-</div>
 </div>
 
 

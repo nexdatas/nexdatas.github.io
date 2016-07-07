@@ -1,6 +1,3 @@
-Design
-######
-
 NXDL extensions for data sources
 ================================
 
@@ -22,7 +19,7 @@ The ``<strategy>`` tag
 The **strategy** tag defines when and in which way the data is stored.
 An example of usage:
 
-::
+.. code-block:: xml
 
     <field name="energy" type="NX_FLOAT" units="GeV" >
       <strategy mode="STEP" trigger="trigger1" />
@@ -72,7 +69,7 @@ into the H5 file by a post-processing program.
 
 An example of usage:
 
-::
+.. code-block:: xml
 
     <field name="energy" type="NX_FLOAT" units="GeV" >
       <strategy mode="POSTRUN" >
@@ -106,7 +103,7 @@ The ``<datasouce>`` tag acquires the following attributes:
 The CLIENT datasource allows to read data from client JSON strings. It
 should contain a ``<record />`` tag. An example of usage:
 
-::
+.. code-block:: xml
 
     <datasource type="CLIENT" name="exp_c01">
       <record name="counter_1"/>
@@ -134,7 +131,7 @@ The TANGO datasource allows to read data from other TANGO devices. It
 should contain ``<device/>`` and ``<record/>`` tags. An example of
 usage:
 
-::
+.. code-block:: xml
 
     <datasource type="TANGO">
       <device hostname="haso.desy.de" member="attribute" name="p09/motor/exp.01" port="10000" encoding="LIMA_VIDEO_IMAGE"/>
@@ -181,7 +178,7 @@ The DB datasource allows to read data from accessible databases. It
 should contain ``<database />`` and ``<query>`` tags. An example of
 usage:
 
-::
+.. code-block:: xml
 
     <datasource type="DB">
       <database dbname="tango" dbtype="MYSQL" hostname="haso.desy.de"/>
@@ -234,7 +231,7 @@ The **content** of the query tags is the SQL query
 
 Another example of usage:
 
-::
+.. code-block:: xml
 
     <datasource type="DB">
       <database dbname="mydb" dbtype="PGSQL"/>
@@ -249,7 +246,7 @@ Another example of usage:
 The PYEVAL datasource allows to read data from other datasources and
 evaluate it by a user python script. An example of usage:
 
-::
+.. code-block:: xml
 
     <datasource type="PYEVAL">
 
