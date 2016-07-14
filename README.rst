@@ -17,3 +17,6 @@ This project contains the following NeXus software:
 
 Authors: *Jan Kotański, Eugen Wintersberger, Halil Pasic, Maria-Teresa
 Núñez-Pardo-de-Vera*
+
+| Source code: https://github.com/nexdatas
+| NexDaTaS Web page: https://nexdatas.github.io
