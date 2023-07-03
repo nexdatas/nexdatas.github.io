@@ -8,8 +8,8 @@ This project contains the following NeXus software:
 -  `Selector Server <https://nexdatas.github.io/nxsrecselector>`__ - configuration configuration selector implemented as a `Tango <http://www.tango-controls.org/>`__ server
 -  `Component Designer <https://nexdatas.github.io/nxsdesigner>`__  - GUI configuration tool written in `PyQt <https://riverbankcomputing.com/software/pyqt/intro>`__
 -  `Component Selector <https://nexdatas.github.io/nxselector>`__  - GUI component selector written in `Taurus <http://www.taurus-scada.org>`__ (`PyQt <https://riverbankcomputing.com/software/pyqt/intro>`__)
--  `NeXus Macro GUI <https://nexdatas.github.io/taurusgui>`__  - Macro GUI with the additional `Component Selector <https://nexdatas.github.io/nxselector>`__ widget written in `Taurus <http://www.taurus-scada.org/en/stable/>`__ (`PyQt <https://riverbankcomputing.com/software/pyqt/intro>`__)
--  `Sardana Recorder <https://nexdatas.github.io/nxssardana-nxs-recorders>`__ - NeXus `Sardana <http://www.sardana-controls.org/en/stable/>`__ Recorder 
+-  `NeXus Macro GUI <https://nexdatas.github.io/nxsmacrogui>`__  - Macro GUI with the additional `Component Selector <https://nexdatas.github.io/nxselector>`__ widget written in `Taurus <http://www.taurus-scada.org>`__ (`PyQt <https://riverbankcomputing.com/software/pyqt/intro>`__)
+-  `Sardana Recorder <https://nexdatas.github.io/nxssardana-nxs-recorders>`__ - NeXus `Sardana <http://www.sardana-controls.org>`__ Recorder 
 -  `Command-line tools <https://nexdatas.github.io/nxstools>`__ - scripts providing fast access to `Configuration Server <https://nexdatas.github.io/nxsconfigserver>`__ and `Data Writer <https://nexdatas.github.io/nxsdatawriter>`__ from command-line interface
 -  Simple examples of configuration files and control clients
 
